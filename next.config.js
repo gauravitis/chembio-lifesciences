@@ -4,7 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/chembio-lifesciences',
+  basePath: process.env.NODE_ENV === 'production' ? '/chembio-lifesciences' : '',
 }
 
 module.exports = nextConfig
