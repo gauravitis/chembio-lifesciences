@@ -8,11 +8,6 @@ const nextConfig = {
   assetPrefix: process.env.NODE_ENV === 'production' ? '/chembio-lifesciences/' : '',
   trailingSlash: true,
   distDir: 'out',
-  experimental: {
-    images: {
-      unoptimized: true,
-    },
-  },
 }
 
 module.exports = nextConfig
