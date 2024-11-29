@@ -4,8 +4,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/chembio-lifesciences',
-  assetPrefix: '/chembio-lifesciences/',
+  basePath: process.env.NODE_ENV === 'production' ? '/chembio-lifesciences' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/chembio-lifesciences/' : '',
   trailingSlash: true,
 }
 
