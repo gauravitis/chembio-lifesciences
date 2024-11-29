@@ -50,46 +50,31 @@ const Navbar = () => {
                   href={item.href}
                   className={`relative group px-3 py-2 text-sm font-medium transition-colors duration-300
                     ${pathname === item.href 
-                      ? 'text-white dark:text-white' 
-                      : 'text-gray-300 hover:text-white dark:text-gray-300 dark:hover:text-white'}`}
+                      ? 'text-white' 
+                      : 'text-gray-300 hover:text-white'
+                    }`}
                 >
                   {item.name}
-                  <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 
-                    transform origin-left transition-transform duration-300 ease-out
-                    ${pathname === item.href ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}>
-                  </span>
+                  {pathname === item.href && (
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></span>
+                  )}
                 </Link>
               ))}
             </div>
 
-            {/* Right side icons */}
+            {/* Theme Toggle and Admin */}
             <div className="flex items-center space-x-4">
-              {/* Theme toggle */}
               <button
                 onClick={toggleTheme}
                 className="p-2 rounded-full hover:bg-white/10 transition-colors duration-300"
-                aria-label="Toggle theme"
               >
-                {theme === 'dark' ? (
-                  <svg className="w-5 h-5 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                  </svg>
-                ) : (
-                  <svg className="w-5 h-5 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                  </svg>
-                )}
+                {theme === 'dark' ? '🌞' : '🌙'}
               </button>
-
-              {/* Admin login */}
               <Link
                 href="/admin"
-                className="p-2 rounded-full hover:bg-white/10 transition-colors duration-300"
-                aria-label="Admin panel"
+                className="p-2 rounded-full hover:bg-white/10 transition-colors duration-300 text-gray-300 hover:text-white"
               >
-                <svg className="w-5 h-5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+                👤
               </Link>
             </div>
           </div>
