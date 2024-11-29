@@ -5,6 +5,8 @@ const nextConfig = {
     unoptimized: true,
   },
   basePath: '/chembio-lifesciences',
+  assetPrefix: '/chembio-lifesciences/',
+  trailingSlash: true,
 }
 
 module.exports = nextConfig
