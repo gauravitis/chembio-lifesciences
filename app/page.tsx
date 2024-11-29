@@ -13,7 +13,6 @@ export default function Home() {
     <main className="w-full min-h-screen">
       <Hero 
         onExploreProductsClick={() => router.push('/products')}
-        onRequestQuoteClick={() => router.push('/contact')}
       />
       <Brands />
       <Services />

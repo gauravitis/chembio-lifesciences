@@ -1,9 +1,10 @@
+import Link from 'next/link';
+
 interface HeroProps {
   onExploreProductsClick: () => void;
-  onRequestQuoteClick: () => void;
 }
 
-const Hero = ({ onExploreProductsClick, onRequestQuoteClick }: HeroProps) => {
+const Hero = ({ onExploreProductsClick }: HeroProps) => {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background with gradient */}
@@ -36,6 +37,12 @@ const Hero = ({ onExploreProductsClick, onRequestQuoteClick }: HeroProps) => {
               hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out">
             Explore Products
           </button>
+          <Link 
+            href="/contact"
+            className="px-8 py-3 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-medium
+              hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out">
+            Get Quotes
+          </Link>
         </div>
       </div>
     </div>
