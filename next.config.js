@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  target: 'serverless',
   output: 'export',
   images: {
     unoptimized: true,
@@ -8,6 +7,12 @@ const nextConfig = {
   basePath: process.env.NODE_ENV === 'production' ? '/chembio-lifesciences' : '',
   assetPrefix: process.env.NODE_ENV === 'production' ? '/chembio-lifesciences/' : '',
   trailingSlash: true,
+  distDir: 'out',
+  experimental: {
+    images: {
+      unoptimized: true,
+    },
+  },
 }
 
 module.exports = nextConfig
