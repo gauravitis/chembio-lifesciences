@@ -1,6 +1,4 @@
-'use client';
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import ImageUpload from './ImageUpload';
 
 interface ProductFormProps {
@@ -14,15 +12,13 @@ interface ProductData {
   price: string;
   category: string;
   imageUrl: string;
+  specifications?: string;
+  stock?: string;
+  tags?: string[];
 }
 
-interface FormData {
-  name: string;
-  category: string;
-  description: string;
+interface FormData extends ProductData {
   specifications: string;
-  imageUrl: string;
-  price: string;
   stock: string;
   tags: string[];
 }
