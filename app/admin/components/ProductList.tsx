@@ -1,6 +1,7 @@
 'use client';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useMemo } from 'react';
+import Image from 'next/image';
 
 interface Product {
   id: string;
@@ -166,11 +167,12 @@ const ProductList = ({ products, onEdit, onDelete }: ProductListProps) => {
               exit={{ opacity: 0, y: -20 }}
               className="backdrop-blur-sm bg-white/5 rounded-3xl p-6 border border-white/10"
             >
-              <div className="aspect-w-16 aspect-h-9 mb-4">
-                <img
+              <div className="aspect-w-16 aspect-h-9 mb-4 relative">
+                <Image
                   src={product.imageUrl || '/placeholder-image.jpg'}
                   alt={product.name || 'Product'}
-                  className="w-full h-48 object-cover rounded-xl"
+                  fill
+                  className="object-cover rounded-xl"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.src = '/placeholder-image.jpg';

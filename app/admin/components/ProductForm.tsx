@@ -12,9 +12,9 @@ interface ProductData {
   price: string;
   category: string;
   imageUrl: string;
-  specifications?: string;
-  stock?: string;
-  tags?: string[];
+  specifications: string;
+  stock: string;
+  tags: string[];
 }
 
 interface FormData extends ProductData {
