@@ -1,9 +1,10 @@
 'use client';
 
+import React from 'react';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa';
 import { cn } from '@/lib/utils';
-import type { ReactElement } from 'react';
 
 // Team data
 const leadership = [

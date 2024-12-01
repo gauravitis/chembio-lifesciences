@@ -108,7 +108,7 @@ const AboutPage = () => {
               </span>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {values.map((value, index) => (
+              {values.map((value) => (
                 <div
                   key={value.title}
                   className="group p-6 backdrop-blur-sm bg-white/5 rounded-2xl border border-white/10 

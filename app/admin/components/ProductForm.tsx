@@ -1,16 +1,34 @@
 'use client';
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import ImageUpload from './ImageUpload';
 
 interface ProductFormProps {
-  onSubmit: (product: any) => void;
-  initialData?: any;
-  isEditing?: boolean;
+  onSubmit: (formData: FormData) => Promise<void>;
+  initialData?: ProductData;
 }
 
-const ProductForm = ({ onSubmit, initialData, isEditing = false }: ProductFormProps) => {
-  const [formData, setFormData] = useState({
+interface ProductData {
+  name: string;
+  description: string;
+  price: string;
+  category: string;
+  imageUrl: string;
+}
+
+interface FormData {
+  name: string;
+  category: string;
+  description: string;
+  specifications: string;
+  imageUrl: string;
+  price: string;
+  stock: string;
+  tags: string[];
+}
+
+const ProductForm = ({ onSubmit, initialData }: ProductFormProps) => {
+  const [formData, setFormData] = useState<FormData>({
     name: initialData?.name || '',
     category: initialData?.category || '',
     description: initialData?.description || '',
@@ -184,7 +202,7 @@ const ProductForm = ({ onSubmit, initialData, isEditing = false }: ProductFormPr
         className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-medium
           hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
       >
-        {isEditing ? 'Update Product' : 'Add Product'}
+        Update Product
       </button>
     </form>
   );

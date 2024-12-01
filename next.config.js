@@ -1,13 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
   images: {
-    unoptimized: true,
+    domains: ['localhost'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/chembio-lifesciences' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/chembio-lifesciences/' : '',
-  trailingSlash: true,
-  distDir: 'out',
 }
 
 module.exports = nextConfig
