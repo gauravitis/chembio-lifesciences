@@ -1,0 +1,30 @@
+{
+  "products": [
+    {
+      "id": "9195a106-cef8-47ae-b213-09299ba4b6bb",
+      "catalogueId": "270458-1L",
+      "name": "1-Methyl-2-pyrrolidinone CHROMASOLV™ Plus, for HPLC, ≥99%\r",
+      "description": "1-Methyl-2-pyrrolidone; N-Methyl-2-pyrrolidone; NMP",
+      "brand": "Honeywell",
+      "casNumber": "7647-14-5",
+      "packSize": "1L",
+      "price": "10899",
+      "imageUrl": "https://lab.honeywell.com/shop/media/catalog/product/cache/ae13028c52290a7248189008ed57c9bd/8/d/8dff797f7b8151e571e80c683d5d3db2a0275e0f4d68445f4cb68187f0ee0b8c.jpeg",
+      "created_at": "2024-12-04T08:51:33.534Z",
+      "updated_at": "2024-12-04T08:51:33.534Z"
+    },
+    {
+      "id": "de44600c-e22b-4328-a711-3ca99b09bda7",
+      "catalogueId": "34856-2.5L",
+      "name": "Dichloromethane CHROMASOLV™, for HPLC, ≥99.8%, contains amylene as stabilizer\r",
+      "description": "Methylene chloride",
+      "brand": "Honeywell",
+      "casNumber": "872-50-4",
+      "packSize": "1L",
+      "price": "8260",
+      "imageUrl": "https://lab.honeywell.com/shop/media/catalog/product/cache/ae13028c52290a7248189008ed57c9bd/9/7/97396f625fd0897ac7566fc410ee29722c7d98a6601fe7dd6959ba39b26e449d.jpeg",
+      "created_at": "2024-12-04T08:51:33.534Z",
+      "updated_at": "2024-12-04T08:51:33.534Z"
+    }
+  ]
+}

@@ -1,25 +1,19 @@
 'use client';
-import { useState } from 'react';
+
+import { useEffect } from 'react';
+import { SignIn, useUser } from "@clerk/nextjs";
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 
-const AdminLogin = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+export default function AdminLogin() {
+  const { isLoaded, isSignedIn } = useUser();
   const router = useRouter();
 
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Default credentials (in a real app, these should be stored securely)
-    if (username === 'admin' && password === 'chembio123') {
-      // In a real app, you'd want to use a proper authentication system
-      localStorage.setItem('adminAuthenticated', 'true');
+  useEffect(() => {
+    if (isLoaded && isSignedIn) {
       router.push('/admin/dashboard');
-    } else {
-      setError('Invalid username or password');
     }
-  };
+  }, [isLoaded, isSignedIn, router]);
 
   return (
     <main className="relative min-h-screen flex flex-col items-center">
@@ -50,53 +44,28 @@ const AdminLogin = () => {
             </h1>
           </div>
 
-          <form onSubmit={handleLogin} className="space-y-6">
-            <div>
-              <label htmlFor="username" className="block text-sm font-medium text-gray-300 mb-2">
-                Username
-              </label>
-              <input
-                type="text"
-                id="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400
-                  focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
-                placeholder="Enter username"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-2">
-                Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400
-                  focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
-                placeholder="Enter password"
-              />
-            </div>
-
-            {error && (
-              <p className="text-red-400 text-sm text-center">{error}</p>
-            )}
-
-            <button
-              type="submit"
-              className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-medium
-                hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
-            >
-              Login
-            </button>
-          </form>
+          <SignIn 
+            appearance={{
+              elements: {
+                formButtonPrimary: 
+                  "bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:opacity-80",
+                card: "bg-transparent backdrop-blur-sm",
+                headerTitle: "text-white",
+                headerSubtitle: "text-gray-300",
+                socialButtonsBlockButton: "bg-white/10 border border-white/20 text-white hover:bg-white/20",
+                socialButtonsBlockButtonText: "text-white",
+                dividerLine: "bg-white/20",
+                dividerText: "text-white/60",
+                formFieldLabel: "text-gray-300",
+                formFieldInput: "bg-white/10 border border-white/20 text-white",
+                footerActionLink: "text-purple-400 hover:text-purple-300",
+              },
+            }}
+            redirectUrl="/admin/dashboard"
+            afterSignInUrl="/admin/dashboard"
+          />
         </motion.div>
       </div>
     </main>
   );
-};
-
-export default AdminLogin;
+}
